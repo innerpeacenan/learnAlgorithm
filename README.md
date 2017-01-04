@@ -1,2 +1,3 @@
 # learnAlgorithm
-learn algorithm
+learn algorithm 
+make its portable to work on different computers
