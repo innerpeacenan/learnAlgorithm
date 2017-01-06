@@ -1,11 +1,12 @@
 
+
 #include <stdio.h>
 void quickSort ( int[],int );
 void sort (int [],int ,int );
 int partition (int[],int ,int );
 int main (){
-    int a[] = {22,37,86,54,32,1,7,99,34} ;
-    int n = 9;
+    int a[] = {22,37,86,54,32,1,7,99,34,34,22,86} ;
+    int n = 12;
     quickSort(a,n);
     for (int i = 0; i < n ; i++){
         printf("%d  ",a[i]);
@@ -43,7 +44,7 @@ void sort (int a[], int lo, int hi){
 int partition (int a[],int lo, int hi){
     //partition into a[lo...i-1],a[i+1,...,hi]
     // left and right scan indices,assume the index of the max element is hi
-    int i =lo,j = hi - 1,v = a[hi],temp;
+    int i =lo + 1,j = hi, v = a[lo],temp;
     //Scan right, scan left, check for scan complete, and exchange.
     while (1){
         while( a[i] > v){// made a mistic here, mind not clear
@@ -62,9 +63,8 @@ int partition (int a[],int lo, int hi){
         a[i] = a[j];
         a[j] = temp;
     }
-    // put v=a[i] into position
-    temp = a[i];
-    a[i] = a[hi];
-    a[hi] = temp;
+    // put v=a[lo] into position
+    a[lo]= a[j];
+    a[j] = v;
     return i;// return where is the two subarrays bundary
 }
