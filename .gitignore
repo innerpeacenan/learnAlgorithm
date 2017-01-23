@@ -1,3 +1,6 @@
+# c compileed file
 *.out
+# java compiled file
 *.class
+# invisible files
 ^.*
